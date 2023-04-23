@@ -1,0 +1,14 @@
+# see auto-configure org.springframework.boot.autoconfigure.AutoConfiguration.imports
+# see org.springframework.boot.autoconfigure.orm.jpa.JpaProperties
+spring:
+  jpa:
+    database: MYSQL
+    showSql: true
+    generateDdl: false
+    hibernate:
+      ddlAuto: none
+  datasource:
+    url: jdbc:mysql://114.207.102.149:13306/bob?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: bob
+    password: bob
+    driverClassName: com.mysql.cj.jdbc.Driver
