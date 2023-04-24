@@ -3,6 +3,7 @@ package bob.service;
 import bob.dto.CreateEntranceRequest;
 import bob.model.EntranceEntity;
 import bob.repository.EntranceRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class EntranceService {
     private final EntranceRepository entranceRepository;
-
-    public EntranceService(EntranceRepository entranceRepository) {
-        this.entranceRepository = entranceRepository;
-    }
 
     public EntranceEntity createEntrance(CreateEntranceRequest request) {
         EntranceEntity entrance = new EntranceEntity(request.getRoomId(), request.getUserId());

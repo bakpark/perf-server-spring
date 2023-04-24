@@ -3,21 +3,21 @@ package bob.controller;
 import bob.dto.ChatsResponse;
 import bob.dto.CreateChatRequest;
 import bob.service.ChatService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class ChatController {
 
     private final ChatService chatService;
 
-    public ChatController(ChatService chatService) {
-        this.chatService = chatService;
-    }
-
     @PostMapping("/api/chats")
-    public String createChat(@RequestBody CreateChatRequest request) {
+    public ResponseEntity createChat(@RequestBody CreateChatRequest request) {
         chatService.createChat(request);
-        return "";
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping("/api/users/{userId}/chats")
