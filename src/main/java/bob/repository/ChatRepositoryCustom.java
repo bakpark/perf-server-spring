@@ -19,7 +19,8 @@ public class ChatRepositoryCustom extends QuerydslRepositorySupport {
 
     public List<ChatEntity> findAllChatsUserReceived(String userId, int pageSize) {
         return from(chat)
-                .innerJoin(chat).on(chat.roomId.eq(entrance.roomId))
+                .innerJoin(entrance)
+                .on(chat.roomId.eq(entrance.roomId))
                 .where(entrance.roomId.eq(userId))
                 .orderBy(chat.createdAt.desc())
                 .limit(pageSize)

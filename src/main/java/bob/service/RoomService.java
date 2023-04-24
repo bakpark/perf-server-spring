@@ -7,7 +7,6 @@ import bob.repository.EntranceRepository;
 import bob.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +23,7 @@ public class RoomService {
         return roomRepository.save(new RoomEntity(roomId));
     }
 
-    @Transactional
     public void deleteRoomByRoomId(String roomId) {
-        roomRepository.deleteById(roomId);
+        roomRepository.deleteByRoomId(roomId);
     }
 }

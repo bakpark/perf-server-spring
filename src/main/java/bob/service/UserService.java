@@ -3,6 +3,7 @@ package bob.service;
 import bob.model.UserEntity;
 import bob.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -17,6 +18,6 @@ public class UserService {
     }
 
     public void deleteByUserId(String userId) {
-        userRepository.deleteById(userId);
+        userRepository.deleteByUserId(userId);
     }
 }
