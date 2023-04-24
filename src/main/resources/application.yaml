@@ -3,7 +3,7 @@
 spring:
   jpa:
     database: MYSQL
-    showSql: true
+    showSql: false
     generateDdl: false
     hibernate:
       ddlAuto: none
